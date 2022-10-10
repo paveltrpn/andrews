@@ -11,7 +11,10 @@
 
 package main
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 func seqMatrixMult(m1, m2, res []int, n int) []int {
 	m1Rows := len(m1) / n
@@ -51,9 +54,7 @@ func parMatrixMult(vp, n int, m1, m2, res []int) []int {
 	return res
 }
 
-//
 // Matrix chain mulptiplication section
-//
 func computeCost(cost, chain []int, n, i, j int) {
 	cost[i*n+j] = math.MaxInt32
 	if i == j {
@@ -128,5 +129,5 @@ func parChainMult(rounds []chan int, finish chan int, cost, chain []int, vp, n i
 }
 
 func main() {
-
+	fmt.Printf("Concurrent matrix multiplication test")
 }
